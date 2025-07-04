@@ -64,7 +64,6 @@ docker run --env-file .env property-scraper
 
 - `debug_html/`: saved HTML pages for offline inspection
 - `scraper_checkpoint.json`: progress checkpoint for resumability
-- `test.py`: dry-run parsing on saved reports
 - Logs output to stdout with rich `DEBUG`/`INFO` levels
 
 ---
@@ -90,9 +89,31 @@ Uniqueness: `swiscode + printkey`
 | Script         | Description                         |
 |----------------|-------------------------------------|
 | `main.py`      | Full scraper start point            |
-| `test.py`      | Parses and prints saved HTML files  |
 | `fetcher.py`   | Downloads and stores property data  |
 | `parser.py`    | Converts raw HTML to structured JSON|
+
+---
+
+## ⚡ Speeding Up the Scraper
+
+The scraper can be slow when polling 190,000+ properties one-by-one. To increase performance, you can:
+
+- Use **asyncio + Playwright concurrency** (e.g., 10–50 pages in parallel)
+- Minimize duplicate lookups with checkpoints or database checks
+- Retry failed requests in a separate async queue
+
+We recommend running batches of 10–20 concurrent page tabs for safe, high-speed scraping without IP throttling.
+
+---
+
+## 🧭 Resolving Full Property Addresses
+
+The raw report often contains only a partial address (e.g., just street name). To generate a usable address:
+
+- Extract full mailing address from the `owners` section when available
+- Use `SWIS + printkey` to reference local GIS or tax maps
+- (Optional) Use reverse geocoding on lat/lon from report to look up ZIP code and city
+- Normalize results for use in mailing, mapping, or appraisal workflows
 
 ---
 
