@@ -1,0 +1,6 @@
+playwright
+beautifulsoup4
+sqlalchemy
+psycopg2-binary
+python-dotenv
+alembic

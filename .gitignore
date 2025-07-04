@@ -1,0 +1,40 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.env/
+.env.*  # if you use .env.development, etc.
+
+# VSCode settings
+.vscode/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Pytest / coverage
+.coverage
+.cache/
+htmlcov/
+.tox/
+.pytest_cache/
+
+# Logs / local output
+*.log
+*.sqlite3
+debug_html/
+scraper_checkpoint.json
+
+# Alembic generated migrations (optional)
+alembic/versions/*.pyc
+alembic/versions/__pycache__/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# System
+.DS_Store

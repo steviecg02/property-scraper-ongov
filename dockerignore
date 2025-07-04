@@ -1,0 +1,41 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+*.pyd
+
+# Virtualenvs
+venv/
+env/
+.venv/
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+
+# System
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Build / packaging
+dist/
+build/
+
+# Alembic cache
+alembic/versions/__pycache__/
+
+# Logs, temp, and debug output
+*.log
+*.sqlite3
+debug_html/
+scraper_checkpoint.json
+
+# Environment
+.env
+.env.*
